@@ -14,6 +14,8 @@ boxSearch.addEventListener('input', debounce(onInputSearch, DEBOUNCE_DELAY));
 function onInputSearch(event) {
     event.preventDefault();
     
+    boxSearch.style.color = 'black';
+    
     const searchCountries = event.target.value.trim();
     
     if (!searchCountries) {
@@ -35,6 +37,7 @@ function onInputSearch(event) {
         .catch(error => {
             listCountry.innerHTML = '';
             infoCountry.innerHTML = '';
+            boxSearch.style.color = 'tomato';
             Notify.failure('Oops, there is no country with that name');
         })
 };
